@@ -1,0 +1,9 @@
+<h1><%= current_user.name %></h1>
+
+<h2>New Qwit</h2>
+
+<% current_user.qwits.order(created_at: :desc).each do |qwit| %>
+  <%= qwit.post %>
+<% end %>
+
+
