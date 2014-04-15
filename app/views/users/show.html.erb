@@ -1,9 +1,16 @@
 <h1><%= current_user.name %></h1>
+<br />
+<h4>New Qwit</h4>
 
-<h2>New Qwit</h2>
-
+<%= form_for @qwit, url: qwits_path do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.text_field :post %>
+  <%= f.submit "Qwit it!", class: "btn btn-success" %>
+<% end %>
+<br />
+<br />
 <% current_user.qwits.order(created_at: :desc).each do |qwit| %>
-  <%= qwit.post %>
+  <div class="panel panel-success"><p><%= qwit.post %></p></div><br />
 <% end %>
 
 
