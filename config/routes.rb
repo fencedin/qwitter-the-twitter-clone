@@ -1,4 +1,5 @@
 TwitterClone::Application.routes.draw do
-  root to: 'devise/sessions#new'
+  root to: 'users#index'
   devise_for :users
+  resources :qwits
 end
