@@ -4,4 +4,10 @@ class User < ActiveRecord::Base
 
   validates :name, presence: true
   has_many :qwits
+  after_create :send_welcome_message
+
+  def send_welcome_message
+    UserMailer.signup_confirmation(self)
+  end
+
 end
