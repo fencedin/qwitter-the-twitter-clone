@@ -14,14 +14,22 @@
   <div class="panel panel-success"><p><%= qwit.post %></p></div><br />
 <% end %>
 </div>
+
 <div class="col-md-3 pull-right right">
   <h4>Qwitters you Follow</h4>
   <% @current_followers.each do |user| %>
-    <p><%= user.name %></p>
+    <p><%= form_for @following, url: following_path(current_user), method: "delete" do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.hidden_field :follower_id, value: user.id %>
+      <%= f.submit "#{user.name}", class: "btn btn-primary" %>
+    <% end %></p>
   <% end %>
   <br /><br />
+
   <h4>Other Qwitters!</h4>
+
   <p>Click to follow</p><hr>
+
   <% @not_following.each do |user| %>
     <p><%= form_for @following, url: followings_path, method: "post" do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
