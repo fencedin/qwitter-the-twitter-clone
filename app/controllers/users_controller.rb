@@ -3,6 +3,9 @@ class UsersController < ApplicationController
 
   def show
     @qwit = Qwit.new
+    @following = Following.new
+    @current_followers = current_user.followers
+    @not_following = User.all - @current_followers
   end
 
 private

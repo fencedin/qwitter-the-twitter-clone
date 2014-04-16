@@ -3,4 +3,5 @@ TwitterClone::Application.routes.draw do
   devise_for :users
   resources :users
   resources :qwits
+  resources :followings
 end
