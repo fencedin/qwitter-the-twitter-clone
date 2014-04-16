@@ -24,7 +24,6 @@ class Qwit < ActiveRecord::Base
 
   def send_mention_mail
     self.mention.each do |user|
-      dsadsadas
       UserMailer.mention_confirmation(user, self).deliver
     end
   end

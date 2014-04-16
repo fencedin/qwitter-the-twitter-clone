@@ -11,4 +11,8 @@ class UserMailer < ActionMailer::Base
     @qwit = qwit
     mail to: user.email, subject: "You were mentioned on Qwitter!"
   end
+
+  def follow_confirmation(user, follower)
+    mail to: follower.email, subject: "You were followed on Qwitter by #{@user.name}!"
+  end
 end

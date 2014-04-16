@@ -14,8 +14,4 @@ class FollowingsController < ApplicationController
     redirect_to :back
   end
 
-  private
-  def following_params
-    params.require(:following).permit(:user_id, :follower_id)
-  end
 end

@@ -17,6 +17,7 @@
 
 <div class="col-md-3 pull-right right">
   <h4>Qwitters you Follow</h4>
+  <p>Click to unfollow</p><hr>
   <% @current_followers.each do |user| %>
     <p><%= form_for @following, url: following_path(current_user), method: "delete" do |f| %>
       <%= f.hidden_field :user_id, value: current_user.id %>
